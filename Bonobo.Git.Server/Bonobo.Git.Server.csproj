@@ -43,6 +43,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <Prefer32Bit>false</Prefer32Bit>
+    <LangVersion>6</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -638,7 +639,6 @@
     <EmbeddedResource Include="App_GlobalResources\Resources.zh-HK.resx" />
     <EmbeddedResource Include="App_GlobalResources\Resources.zh-TW.resx" />
     <Content Include="App_Data\.gitconfig" />
-    <None Include="Properties\PublishProfiles\bonobo.pubxml" />
     <None Include="Properties\PublishProfiles\Release-Api.pubxml" />
     <None Include="Properties\PublishProfiles\Release-UI.pubxml" />
     <None Include="Properties\PublishProfiles\Release.pubxml" />
@@ -753,7 +753,10 @@ if not exist "$(TargetDir)NativeBinaries" md "$(TargetDir)NativeBinaries"
 if not exist "$(TargetDir)NativeBinaries\x86" md "$(TargetDir)NativeBinaries\x86"
 %25windir%25\system32\xcopy /s /y /d "$(SolutionDir)packages\LibGit2Sharp.0.21.0.176\lib\net40\NativeBinaries\x86\*.*" "$(TargetDir)NativeBinaries\x86"
 if not exist "$(TargetDir)NativeBinaries\amd64" md "$(TargetDir)NativeBinaries\amd64"
-%25windir%25\system32\xcopy /s /y /d "$(SolutionDir)packages\LibGit2Sharp.0.21.0.176\lib\net40\NativeBinaries\amd64\*.*" "$(TargetDir)NativeBinaries\amd64"</PreBuildEvent>
+%25windir%25\system32\xcopy /s /y /d "$(SolutionDir)packages\LibGit2Sharp.0.21.0.176\lib\net40\NativeBinaries\amd64\*.*" "$(TargetDir)NativeBinaries\amd64"
+
+%25windir%25\system32\xcopy /s /y /d "$(SolutionDir)packages\System.Data.SQLite.Core.1.0.98.1\build\net46\x64\*.*" "$(TargetDir)x64"
+%25windir%25\system32\xcopy /s /y /d "$(SolutionDir)packages\System.Data.SQLite.Core.1.0.98.1\build\net46\x86\*.*" "$(TargetDir)x86"</PreBuildEvent>
   </PropertyGroup>
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
   <PropertyGroup>
