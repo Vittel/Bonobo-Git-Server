@@ -206,3 +206,4 @@ $RECYCLE.BIN/
 !*/[Bb]in/[Ww]eb.config
 .localhistory/
 Bonobo.Git.Server/Deploy/
+.vs/
