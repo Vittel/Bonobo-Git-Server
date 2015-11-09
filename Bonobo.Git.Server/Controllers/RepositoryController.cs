@@ -15,6 +15,7 @@ using Bonobo.Git.Server.Models;
 using Bonobo.Git.Server.Security;
 using Ionic.Zip;
 using Microsoft.Practices.Unity;
+using MimeTypes;
 
 namespace Bonobo.Git.Server.Controllers
 {
@@ -119,6 +120,7 @@ namespace Bonobo.Git.Server.Controllers
                     {
                         LibGit2Sharp.Repository.Init(path, true);
                         TempData["CreateSuccess"] = true;
+                        TempData["SuccessfullyCreatedRepositoryName"] = model.Name;
                         return RedirectToAction("Index");
                     }
                     else
@@ -279,7 +281,7 @@ namespace Bonobo.Git.Server.Controllers
                 }
                 if (model.IsImage)
                 {
-                    return File(model.Data, FileDisplayHandler.GetMimeType(model.Name), model.Name);
+                    return File(model.Data, MimeTypeMap.GetMimeType(Path.GetExtension(model.Name.ToLower())), model.Name);
                 }
             }
 
